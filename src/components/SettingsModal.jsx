@@ -27,20 +27,6 @@ export default function SettingsModal({ isOpen, onClose }) {
     onClose();
   };
 
-  const handleGoogleSignIn = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      await handleAuthResult(result);
-    } catch (err) {
-      console.error(err);
-      setError('Google Auth failed: ' + (err.response?.data?.detail || err.message));
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleEmailSignIn = async (isRegister) => {
     if (!email || !password) {
       setError('Please provide both email and password.');
@@ -139,22 +125,6 @@ export default function SettingsModal({ isOpen, onClose }) {
                 </button>
               </div>
             </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.8rem', margin: '0.5rem 0' }}>
-              <div style={{ flex: 1, height: '1px', background: 'var(--surface-border)' }}></div>
-              <span style={{ padding: '0 10px' }}>OR</span>
-              <div style={{ flex: 1, height: '1px', background: 'var(--surface-border)' }}></div>
-            </div>
-
-            <button 
-              className="btn-secondary flex items-center justify-center gap-2" 
-              onClick={handleGoogleSignIn}
-              disabled={loading}
-              style={{ width: '100%', padding: '0.75rem' }}
-            >
-              {loading ? <Loader2 size={18} className="animate-spin" /> : null}
-              {loading ? 'Authenticating...' : 'Continue with Google'}
-            </button>
           </div>
         )}
       </div>
