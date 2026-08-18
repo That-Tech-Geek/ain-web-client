@@ -33,4 +33,12 @@ export const getCitations = async (query, limit = 5) => {
   return response.data;
 };
 
+export const inquireResearch = async (query, maxResults = 5) => {
+  const response = await api.post('/research/inquire', {
+    query,
+    max_results: maxResults,
+  });
+  return response.data;
+};
+
 export default api;

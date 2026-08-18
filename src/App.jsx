@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import SettingsModal from './components/SettingsModal';
 import PaperChecker from './pages/PaperChecker';
 import CitationEngine from './pages/CitationEngine';
+import ResearchInquire from './pages/ResearchInquire';
 
 function App() {
   const [apiKey, setApiKey] = useState(localStorage.getItem('ain_api_key'));
@@ -32,7 +33,8 @@ function App() {
         
         <main className="container">
           <Routes>
-            <Route path="/" element={<PaperChecker />} />
+            <Route path="/" element={<ResearchInquire />} />
+            <Route path="/audit" element={<PaperChecker />} />
             <Route path="/citations" element={<CitationEngine />} />
           </Routes>
         </main>

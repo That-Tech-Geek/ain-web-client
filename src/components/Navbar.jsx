@@ -12,8 +12,9 @@ export default function Navbar({ onOpenSettings }) {
         </div>
         
         <div className="flex items-center gap-8">
-          <NavLink to="/" style={({isActive}) => isActive ? activeLink : linkStyle}>Paper Auditor</NavLink>
-          <NavLink to="/citations" style={({isActive}) => isActive ? activeLink : linkStyle}>Citation Engine</NavLink>
+          <NavLink to="/" style={({isActive}) => isActive ? activeLink : linkStyle}>Research Inquire</NavLink>
+          <NavLink to="/audit" style={({isActive}) => isActive ? activeLink : linkStyle}>Paper Auditor</NavLink>
+          <NavLink to="/citations" style={({isActive}) => isActive ? activeLink : linkStyle}>Citations</NavLink>
           
           <button className="btn-secondary flex items-center gap-2" onClick={onOpenSettings} style={{ padding: '0.5rem 1rem' }}>
             <Settings size={16} /> API Key
